@@ -1,14 +1,89 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>ShopTime website</title>
-<meta charset="UTF-8">
-<meta name="description" content="ShopTime is an online shopping website that sells goods in retail. This company deals with various categories like Electronics, Clothing, Accessories etc">
-<meta name="keywords" content="clothing,footwear,shopping">
-<meta name="author" content="Myself">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</Head>
-<body bgcolor="cyan">
-<h1 align="center"><i>ShopTime<i></h1>
-<h2 align="center"><i>One stop for all your needs<i></h2>
-<p>Here we are using meta tags like charset,name,author etc.</p>
-</body></html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <form id="registrationForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+CSS
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label,
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+
+
+
+document.getElementById("registration_form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone_number").value;
+
+    
+    var emailPattern = /\S+@\S+\.\S+/;
+    var phonePattern = /^\d{10}$/;
+
+    
+    if (!emailPattern.test(email)) {
+        alert("Invalid email format. Please enter a valid email address.");
+        return;
+    }
+
+    if (!phonePattern.test(phone)) {
+        alert("Invalid phone number. Please enter a 10-digit phone number.");
+        return;
+    }
+
+    alert("Successfully registered");
+});
